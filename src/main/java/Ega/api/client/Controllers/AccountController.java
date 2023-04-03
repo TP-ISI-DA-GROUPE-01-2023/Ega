@@ -47,9 +47,9 @@ public class AccountController {
         if (client == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Client not found");
         }
-        if (accountDetails.getType().toLowerCase() == "epargne") {
+        if (accountDetails.getType().toLowerCase().equals("epargne")) {
             accountDetails.setType("Epargne");
-        } else if (accountDetails.getType().toLowerCase() != "courant") {
+        } else if (accountDetails.getType().toLowerCase().equals("courant")) {
             accountDetails.setType("Courant");
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Incorrect account type");
