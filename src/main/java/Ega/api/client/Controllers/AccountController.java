@@ -56,6 +56,7 @@ public class AccountController {
         }
         accountDetails.setBalance(0);
         accountDetails.setClient(client);
+        accountDetails.generateAccountNumber();
         return accountService.save(accountDetails);
     }
 

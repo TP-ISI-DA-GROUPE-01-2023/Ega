@@ -22,7 +22,6 @@ public class AccountService {
     }
 
     public Account save(Account account) {
-        account.generateAccountNumber();
         return accountRepository.save(account);
     }
 

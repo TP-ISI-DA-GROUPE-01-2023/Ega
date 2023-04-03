@@ -6,6 +6,7 @@ import java.util.Random;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +25,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(unique = true)
     private String accountNumber;
     private String type;
     private LocalDate creationDate;
@@ -40,7 +42,7 @@ public class Account {
     }
 
     public void generateAccountNumber() {
-        String alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456";
         StringBuilder accountNumber = new StringBuilder();
         Random random = new Random();
 
